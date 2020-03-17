@@ -26,9 +26,10 @@ namespace Keepr.Services
       return foundBug;
     }
 
-    internal object CreateNewBug(Bug newBugData)
+    internal Bug CreateNewBug(Bug newBugData)
     {
-      throw new NotImplementedException();
+      newBugData.Id = _bugrepo.CreateNewBug(newBugData);
+      return newBugData;
     }
 
     internal object EditBugById(Bug editedBug)
