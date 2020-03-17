@@ -72,7 +72,7 @@ namespace Keepr.Controllers
       {
         editedBug.Id = id;
         editedBug.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_bs.EditBugById(id));
+        return Ok(_bs.EditBugById(editedBug));
       }
       catch (Exception e)
       {
