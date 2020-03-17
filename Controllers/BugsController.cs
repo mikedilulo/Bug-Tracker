@@ -23,11 +23,11 @@ namespace Keepr.Controllers
 
     [HttpGet]
     [Authorize]
-    public ActionResult<IEnumerable<Bug>> GetAll()
+    public ActionResult<IEnumerable<Bug>> GetAllOpenBugs()
     {
       try
       {
-        return Ok(_bs.GetAllBugs());
+        return Ok(_bs.GetAllOpenBugs());
       }
       catch (Exception e)
       {

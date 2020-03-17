@@ -15,9 +15,9 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    internal IEnumerable<Bug> GetAllBugs()
+    internal IEnumerable<Bug> GetAllOpenBugs()
     {
-      string sql = "SELECT * FROM bugs";
+      string sql = "SELECT * FROM bugs WHERE isClosed = 0";
       return _db.Query<Bug>(sql);
     }
 
@@ -62,9 +62,11 @@ namespace Keepr.Repositories
       _db.Execute(sql, editedBug);
     }
 
+    //SOFT DELETE WILL BE IMPLEMENTED IN PROJECT. THIS IS JUST POSTMAN PURPOSES
     internal void DeleteBugById(int id)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM bugs WHERE id = @id";
+      _db.Execute(sql, new { id });
     }
   }
 }
