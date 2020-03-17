@@ -32,9 +32,12 @@ namespace Keepr.Services
       return newBugData;
     }
 
-    internal object EditBugById(Bug editedBug)
+    internal Bug EditBugById(Bug editedBug)
     {
-      throw new NotImplementedException();
+      Bug bugExists = _bugrepo.GetBugById(editedBug.Id);
+      if (bugExists == null) { throw new Exception("Invalid: Cannot Edit Bug"); }
+      _bugrepo.EditBugById(editedBug);
+      return editedBug;
     }
 
     internal object DeleteBugById(int id)
