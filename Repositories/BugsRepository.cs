@@ -20,14 +20,18 @@ namespace Keepr.Repositories
       string sql = "SELECT * FROM bugs WHERE isClosed = 0";
       return _db.Query<Bug>(sql);
     }
+    internal IEnumerable<Bug> GetAllClosedBugs()
+    {
+      string sql = "SELECT * FROM bugs WHERE isClosed = 1";
+      return _db.Query<Bug>(sql);
+    }
 
     internal Bug GetBugById(int id)
     {
-      string sql = @"
-      SELECT * FROM bugs
-      WHERE id = @id";
+      string sql = "SELECT * FROM bugs WHERE id = @id";
       return _db.QueryFirstOrDefault<Bug>(sql, new { id });
     }
+
 
     internal int CreateNewBug(Bug newBugData)
     {

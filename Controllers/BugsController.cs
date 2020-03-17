@@ -35,6 +35,20 @@ namespace Keepr.Controllers
       }
     }
 
+    [HttpGet]
+    [Authorize]
+    public ActionResult<IEnumerable<Bug>> GetAllClosedBugs()
+    {
+      try
+      {
+        return Ok(_bs.GetAllClosedBugs());
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
     [HttpGet("{id}")]
     [Authorize]
     public ActionResult<Bug> GetById(int id)

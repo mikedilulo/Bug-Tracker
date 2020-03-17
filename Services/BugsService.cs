@@ -19,6 +19,10 @@ namespace Keepr.Services
       return _bugrepo.GetAllOpenBugs();
     }
 
+    internal IEnumerable<Bug> GetAllClosedBugs()
+    {
+      return _bugrepo.GetAllClosedBugs();
+    }
     internal Bug GetBugById(int id)
     {
       var foundBug = _bugrepo.GetBugById(id);
@@ -39,6 +43,7 @@ namespace Keepr.Services
       _bugrepo.EditBugById(editedBug);
       return editedBug;
     }
+
 
     //ONLY FOR POSTMAN PURPOSES AND DELETING DATA. DELETE WILL BE "SOFT"
 
