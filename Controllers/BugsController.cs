@@ -22,7 +22,7 @@ namespace Keepr.Controllers
     }
     [HttpGet]
     [Authorize]
-    public ActionResult<IEnumerable<Bug>> GetAllBugs()
+    public ActionResult<IEnumerable<Bug>> GetAll()
     {
       try
       {
@@ -36,7 +36,7 @@ namespace Keepr.Controllers
 
     [HttpGet("{id}")]
     [Authorize]
-    public ActionResult<Bug> GetBugById(int id)
+    public ActionResult<Bug> GetById(int id)
     {
       try
       {
@@ -73,6 +73,21 @@ namespace Keepr.Controllers
         editedBug.Id = id;
         editedBug.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         return Ok(_bs.EditBugById(editedBug));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    //WILL CREATE DELETE METHOD MORE FOR TESTING PURPOSES. DELETES WILL BE "SOFT"
+    [HttpDelete("{id}")]
+    [Authorize]
+    public ActionResult<string> Delete(int id)
+    {
+      try
+      {
+        return Ok(_bs.DeleteBugById(id));
       }
       catch (Exception e)
       {
