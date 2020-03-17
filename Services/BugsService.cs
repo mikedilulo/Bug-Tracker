@@ -13,5 +13,30 @@ namespace Keepr.Services
     {
       _bugrepo = bugrepo;
     }
+
+    internal object GetAllBugs()
+    {
+      throw new NotImplementedException();
+    }
+
+    internal object GetBugById(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    internal object CreateNewBug(Bug newBugData)
+    {
+      throw new NotImplementedException();
+    }
+
+    internal object EditBugById(Bug editedBug)
+    {
+      throw new NotImplementedException();
+    }
+
+    internal object DeleteBugById(int id)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

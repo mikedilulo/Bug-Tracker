@@ -20,6 +20,7 @@ namespace Keepr.Controllers
     {
       _bs = bs;
     }
+
     [HttpGet]
     [Authorize]
     public ActionResult<IEnumerable<Bug>> GetAll()
