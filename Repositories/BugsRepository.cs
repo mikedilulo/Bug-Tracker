@@ -31,7 +31,16 @@ namespace Keepr.Repositories
 
     internal int CreateNewBug(Bug newBugData)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      INSERT INTO bugs
+      (userId, title, subject, description, reportedBy, isClosed, daysOpen, lastModified, bugCreated, bugClosed)
+      VALUES
+      (@UserId, @Title, @Subject, @Description, @ReportedBy, @IsClosed, @DaysOpen, @LastModified, @BugCreated, @BugClosed);
+      SELECT LAST_INSERT_ID();
+      ";
+      int id = _db.ExecuteScalar<int>(sql, newBugData);
+      newBugData.Id = id;
+      return id;
     }
 
     internal void EditBugById(Bug editedBug)
