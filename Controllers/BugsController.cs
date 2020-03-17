@@ -63,5 +63,21 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public ActionResult<Bug> Edit([FromBody] Bug editedBug, int id)
+    {
+      try
+      {
+        editedBug.Id = id;
+        editedBug.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        return Ok(_bs.EditBugById(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }
