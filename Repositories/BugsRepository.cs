@@ -15,9 +15,9 @@ namespace Keepr.Repositories
       _db = db;
     }
 
-    internal IEnumerable<Bug> GetAllOpenBugs()
+    internal IEnumerable<Bug> GetAllBugs()
     {
-      string sql = "SELECT * FROM bugs WHERE isClosed = 0";
+      string sql = "SELECT * FROM bugs";
       return _db.Query<Bug>(sql);
     }
     internal IEnumerable<Bug> GetAllClosedBugs()

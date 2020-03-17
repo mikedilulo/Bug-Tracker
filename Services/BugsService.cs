@@ -14,9 +14,9 @@ namespace Keepr.Services
       _bugrepo = bugrepo;
     }
 
-    internal IEnumerable<Bug> GetAllOpenBugs()
+    internal IEnumerable<Bug> GetAllBugs()
     {
-      return _bugrepo.GetAllOpenBugs();
+      return _bugrepo.GetAllBugs();
     }
 
     internal IEnumerable<Bug> GetAllClosedBugs()
