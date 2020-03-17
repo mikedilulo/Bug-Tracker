@@ -40,6 +40,8 @@ namespace Keepr.Services
       return editedBug;
     }
 
+    //ONLY FOR POSTMAN PURPOSES AND DELETING DATA. DELETE WILL BE "SOFT"
+
     internal object DeleteBugById(int id)
     {
       Bug bugExists = _bugrepo.GetBugById(id);
