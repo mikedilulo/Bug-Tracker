@@ -14,14 +14,16 @@ namespace Keepr.Services
       _bugrepo = bugrepo;
     }
 
-    internal object GetAllBugs()
+    internal IEnumerable<Bug> GetAllBugs()
     {
-      throw new NotImplementedException();
+      return _bugrepo.GetAllBugs();
     }
 
-    internal object GetBugById(int id)
+    internal Bug GetBugById(int id)
     {
-      throw new NotImplementedException();
+      var foundBug = _bugrepo.GetBugById(id);
+      if (foundBug == null) { throw new Exception("Invalid: Bug Cannot Be Found"); }
+      return foundBug;
     }
 
     internal object CreateNewBug(Bug newBugData)
