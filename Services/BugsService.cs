@@ -42,7 +42,10 @@ namespace Keepr.Services
 
     internal object DeleteBugById(int id)
     {
-      throw new NotImplementedException();
+      Bug bugExists = _bugrepo.GetBugById(id);
+      if (bugExists == null) { throw new Exception("Invalid: Bug Cannot Be Deleted"); }
+      _bugrepo.DeleteBugById(id);
+      return "Successfully Deleted Bug";
     }
   }
 }
