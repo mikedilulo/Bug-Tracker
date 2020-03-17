@@ -21,9 +21,12 @@ namespace Keepr.Repositories
       return _db.Query<Bug>(sql);
     }
 
-    internal object GetBugById(int id)
+    internal Bug GetBugById(int id)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      SELECT * FROM bugs
+      WHERE id = @id";
+      return _db.QueryFirstOrDefault<Bug>(sql, new { id });
     }
 
     internal int CreateNewBug(Bug newBugData)
