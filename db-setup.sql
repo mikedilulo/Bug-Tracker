@@ -1,4 +1,4 @@
--- USE databaseNAME;
+-- USE bugtracker010;
 
 -- CREATE TABLE bugs (
 --     id int NOT NULL AUTO_INCREMENT,
