@@ -47,5 +47,21 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
+
+    [HttpPost]
+    [Authorize]
+    public ActionResult<Bug> Create([FromBody] Bug newBugData)
+    {
+      try
+      {
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        newBugData.UserId = userId;
+        return Ok(_bs.CreateNewBug(newBugData));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }
