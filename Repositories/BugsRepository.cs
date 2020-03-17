@@ -17,7 +17,8 @@ namespace Keepr.Repositories
 
     internal IEnumerable<Bug> GetAllBugs()
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM bugs";
+      return _db.Query<Bug>(sql);
     }
 
     internal object GetBugById(int id)
