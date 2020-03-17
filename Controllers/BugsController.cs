@@ -22,12 +22,25 @@ namespace Keepr.Controllers
     }
     [HttpGet]
     [Authorize]
-    public ActionResult<IEnumerable<Bug>> GetAllBugs(string userId)
+    public ActionResult<IEnumerable<Bug>> GetAllBugs()
     {
       try
       {
-        var creatorId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_bs.GetAllBugs(userId));
+        return Ok(_bs.GetAllBugs());
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    [HttpGet("{id}")]
+    [Authorize]
+    public ActionResult<Bug> GetBugById(int id)
+    {
+      try
+      {
+        return Ok(_bs.GetBugById(id));
       }
       catch (Exception e)
       {
