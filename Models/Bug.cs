@@ -11,10 +11,10 @@ namespace Keepr.Models
     public string Description { get; set; }
     public string ReportedBy { get; set; }
     public bool IsClosed { get; set; }
+    public int DaysOpen { get; set; }
     public DateTime LastModified { get; set; }
     public DateTime BugCreated { get; set; }
     public DateTime BugClosed { get; set; }
-    public DateTime DaysOpen { get; set; }
 
   }
 }
