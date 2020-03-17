@@ -45,7 +45,21 @@ namespace Keepr.Repositories
 
     internal void EditBugById(Bug editedBug)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      UPDATE bugs
+      SET
+      userId = @UserId,
+      title = @Title,
+      subject = @Subject,
+      description = @Description,
+      reportedBy = @ReportedBy,
+      isClosed = @IsClosed,
+      daysOpen = @DaysOpen,
+      lastModified = @LastModified,
+      bugCreated = @BugCreated,
+      bugClosed = @BugClosed
+      WHERE(id = @id)";
+      _db.Execute(sql, editedBug);
     }
 
     internal void DeleteBugById(int id)
