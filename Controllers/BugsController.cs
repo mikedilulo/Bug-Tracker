@@ -51,6 +51,20 @@ namespace Keepr.Controllers
       }
     }
 
+    [HttpGet("{id}/notes")]
+    [Authorize]
+    public ActionResult<IEnumerable<Note>> GetNotesByBugId(int id)
+    {
+      try
+      {
+        return Ok(_ns.GetNotesByBugId(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
     [HttpGet("{id}")]
     [Authorize]
     public ActionResult<Bug> GetById(int id)
