@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Data;
+using Keepr.Models;
 
 namespace Keepr.Repositories
 {
@@ -8,6 +11,11 @@ namespace Keepr.Repositories
     public NotesRepository(IDbConnection db)
     {
       _db = db;
+    }
+
+    internal IEnumerable<Note> GetNotesByBugId(int bugId)
+    {
+      throw new NotImplementedException();
     }
   }
 }
