@@ -16,9 +16,11 @@ namespace Keepr.Controllers
   public class BugsController : ControllerBase
   {
     private readonly BugsService _bs;
-    public BugsController(BugsService bs)
+    private readonly NotesService _ns;
+    public BugsController(BugsService bs, NotesService ns)
     {
       _bs = bs;
+      _ns = ns;
     }
 
     [HttpGet]
