@@ -32,5 +32,10 @@ namespace Keepr.Services
     {
       throw new NotImplementedException();
     }
+
+    internal object DeleteNoteById(int id)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
