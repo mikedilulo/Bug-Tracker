@@ -27,5 +27,10 @@ namespace Keepr.Services
     {
       throw new NotImplementedException();
     }
+
+    internal object EditNoteById(int id)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

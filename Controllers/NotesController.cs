@@ -43,5 +43,21 @@ namespace Keepr.Controllers
         return BadRequest(e.Message);
       }
     }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public ActionResult<Note> Edit([FromBody] Note editedNote, int id)
+    {
+      try
+      {
+        editedNote.Id = id;
+        editedNote.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        return Ok(_ns.EditNoteById(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }
