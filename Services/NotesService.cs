@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using Keepr.Models;
 using Keepr.Repositories;
 
 namespace Keepr.Services
@@ -8,6 +11,11 @@ namespace Keepr.Services
     public NotesService(NotesRepository noterepo)
     {
       _noterepo = noterepo;
+    }
+
+    internal IEnumerable<Note> GetNotesByBugId(int bugId)
+    {
+      return _noterepo.GetNotesByBugId(bugId);
     }
   }
 }
