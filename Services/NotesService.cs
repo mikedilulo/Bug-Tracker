@@ -17,5 +17,15 @@ namespace Keepr.Services
     {
       return _noterepo.GetNotesByBugId(bugId);
     }
+
+    internal object GetNoteById(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    internal object CreateNewNote(Note newNoteData)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

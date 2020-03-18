@@ -1,4 +1,8 @@
+using System;
+using System.Security.Claims;
+using Keepr.Models;
 using Keepr.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Keepr.Controllers
@@ -11,6 +15,33 @@ namespace Keepr.Controllers
     public NotesController(NotesService ns)
     {
       _ns = ns;
+    }
+    [HttpGet("{id}")]
+    public ActionResult<Note> GetById(int id)
+    {
+      try
+      {
+        return Ok(_ns.GetNoteById(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+    [HttpPost]
+    [Authorize]
+    public ActionResult<Note> Create([FromBody] Note newNoteData)
+    {
+      try
+      {
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        newNoteData.UserId = userId;
+        return Ok(_ns.CreateNewNote(newNoteData));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
     }
   }
 }
