@@ -18,17 +18,20 @@ namespace Keepr.Services
       return _noterepo.GetNotesByBugId(bugId);
     }
 
-    internal object GetNoteById(int id)
+    internal Note GetNoteById(int id)
     {
-      throw new NotImplementedException();
+      var foundNote = _noterepo.GetNoteById(id);
+      if (foundNote == null) { throw new Exception("Invalid: Note Cannot Be Found"); }
+      return foundNote;
     }
 
-    internal object CreateNewNote(Note newNoteData)
+    internal Note CreateNewNote(Note newNoteData)
     {
-      throw new NotImplementedException();
+      newNoteData.Id = _noterepo.CreateNewNote(newNoteData);
+      return newNoteData;
     }
 
-    internal object EditNoteById(int id)
+    internal Note EditNoteById(int id)
     {
       throw new NotImplementedException();
     }

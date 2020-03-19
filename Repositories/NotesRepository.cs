@@ -17,5 +17,15 @@ namespace Keepr.Repositories
     {
       throw new NotImplementedException();
     }
+
+    internal object GetNoteById(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    internal int CreateNewNote(Note newNoteData)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
