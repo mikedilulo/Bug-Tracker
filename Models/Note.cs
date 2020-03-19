@@ -10,7 +10,7 @@ namespace Keepr.Models
     public string Title { get; set; }
     public string Description { get; set; }
     public string NoteCreatedBy { get; set; }
-    public DateTime TimeCreated { get; set; }
-    public DateTime TimeEdited { get; set; }
+    public DateTime NoteTimeCreated { get; set; }
+    public DateTime NoteTimeEdited { get; set; }
   }
 }
