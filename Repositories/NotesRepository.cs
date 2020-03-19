@@ -20,9 +20,10 @@ namespace Keepr.Repositories
       return _db.Query<Note>(sql, new { bugId });
     }
 
-    internal object GetNoteById(int id)
+    internal Note GetNoteById(int id)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM notes WHERE id = @id";
+      return _db.QueryFirstOrDefault<Note>(sql, new { id });
     }
 
     internal int CreateNewNote(Note newNoteData)
