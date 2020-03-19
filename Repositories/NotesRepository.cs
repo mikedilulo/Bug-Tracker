@@ -32,7 +32,7 @@ namespace Keepr.Repositories
       INSERT INTO notes
       (userId, title, description, noteCreatedBy, timeCreated)
       VALUES
-      (@UserId, @Title, @Description, @NoteCreatedBy, @TimeCreated)
+      (@UserId, @Title, @Description, @NoteCreatedBy, @TimeCreated);
       SELECT LAST_INSERT_ID();
       ";
       int id = _db.ExecuteScalar<int>(sql, newNoteData);
