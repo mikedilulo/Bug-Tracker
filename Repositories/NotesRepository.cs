@@ -45,7 +45,6 @@ namespace Keepr.Repositories
       string sql = @"
       UPDATE notes
       SET
-      userId = @UserId,
       title = @Title,
       description = @Description,
       noteCreatedBy = @NoteCreatedBy,

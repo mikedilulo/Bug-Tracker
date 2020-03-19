@@ -22,6 +22,8 @@
 --   title VARCHAR(255) NOT NULL,
 --   description VARCHAR(255) NOT NULL,
 --   noteCreatedBy VARCHAR(255) NOT NULL,
+--   noteTimeCreated DATETIME,
+--   noteTimeEdited DATETIME,
 --   INDEX userId(userId),
 --    PRIMARY KEY (id)
 -- )
