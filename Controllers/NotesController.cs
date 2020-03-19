@@ -52,7 +52,7 @@ namespace Keepr.Controllers
       {
         editedNote.Id = id;
         editedNote.UserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        return Ok(_ns.EditNoteById(id));
+        return Ok(_ns.EditNoteById(editedNote));
       }
       catch (Exception e)
       {
