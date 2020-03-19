@@ -34,7 +34,7 @@ namespace Keepr.Services
     {
       Note noteExists = _noterepo.GetNoteById(editedNote.Id);
       if (noteExists == null) { throw new Exception("Invalid: Cannot Edit Note"); }
-      _noterepo.EditNoteById(editedNote.Id);
+      _noterepo.EditNoteById(editedNote);
       return editedNote;
     }
 

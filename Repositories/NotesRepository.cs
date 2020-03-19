@@ -40,17 +40,18 @@ namespace Keepr.Repositories
       return id;
     }
 
-    internal void EditNoteById(int id)
+    internal void EditNoteById(Note editedNote)
     {
       string sql = @"
       UPDATE notes
       SET
+      userId = @UserId,
       title = @Title,
       description = @Description,
       noteCreatedBy = @NoteCreatedBy,
       timeEdited = @TimeEdited
       (WHERE id = @id)";
-      _db.Execute(sql, new { id });
+      _db.Execute(sql, editedNote);
     }
 
     internal void DeleteNoteById(int id)
