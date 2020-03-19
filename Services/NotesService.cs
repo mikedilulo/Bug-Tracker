@@ -38,7 +38,6 @@ namespace Keepr.Services
       return editedNote;
     }
 
-
     internal object DeleteNoteById(int id)
     {
       Note noteExists = _noterepo.GetNoteById(id);

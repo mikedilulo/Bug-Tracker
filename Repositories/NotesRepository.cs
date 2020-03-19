@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Dapper;
 using Keepr.Models;
 
 namespace Keepr.Repositories
@@ -15,7 +16,8 @@ namespace Keepr.Repositories
 
     internal IEnumerable<Note> GetNotesByBugId(int bugId)
     {
-      throw new NotImplementedException();
+      string sql = "SELECT * FROM notes WHERE bugId = @bugId";
+      return _db.Query<Note>(sql, new { bugId });
     }
 
     internal object GetNoteById(int id)
