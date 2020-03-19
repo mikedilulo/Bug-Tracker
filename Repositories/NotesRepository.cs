@@ -30,9 +30,9 @@ namespace Keepr.Repositories
     {
       string sql = @"
       INSERT INTO notes
-      (userId, title, description, noteCreatedBy)
+      (userId, title, description, noteCreatedBy, timeCreated)
       VALUES
-      (@UserId, @Title, @Description, @NoteCreatedBy)
+      (@UserId, @Title, @Description, @NoteCreatedBy, @TimeCreated)
       SELECT LAST_INSERT_ID();
       ";
       int id = _db.ExecuteScalar<int>(sql, newNoteData);
@@ -48,7 +48,8 @@ namespace Keepr.Repositories
       userId = @UserId,
       title = @Title,
       description = @Description,
-      noteCreatedBy = @NoteCreatedBy
+      noteCreatedBy = @NoteCreatedBy,
+      timeEdited = @TimeEdited
       (WHERE id = @id)";
       _db.Execute(sql, new { id });
     }
