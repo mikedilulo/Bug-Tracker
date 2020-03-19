@@ -28,7 +28,16 @@ namespace Keepr.Repositories
 
     internal int CreateNewNote(Note newNoteData)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      INSERT INTO notes
+      (userId, bugId, title, description, noteCreatedBy)
+      VALUES
+      (@UserId, @BugId, @Title, @Description, @NoteCreatedBy)
+      SELECT LAST_INSERT_ID();
+      ";
+      int id = _db.ExecuteScalar<int>(sql, newNoteData);
+      newNoteData.Id = id;
+      return id;
     }
 
     internal void EditNoteById(int id)
