@@ -50,7 +50,7 @@ namespace Keepr.Repositories
       description = @Description,
       noteCreatedBy = @NoteCreatedBy,
       noteTimeEdited = @NoteTimeEdited
-      (WHERE id = @id)";
+      WHERE(id = @id)";
       _db.Execute(sql, editedNote);
     }
 
