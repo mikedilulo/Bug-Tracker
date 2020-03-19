@@ -30,9 +30,9 @@ namespace Keepr.Repositories
     {
       string sql = @"
       INSERT INTO notes
-      (userId, bugId, title, description, noteCreatedBy)
+      (userId, title, description, noteCreatedBy)
       VALUES
-      (@UserId, @BugId, @Title, @Description, @NoteCreatedBy)
+      (@UserId, @Title, @Description, @NoteCreatedBy)
       SELECT LAST_INSERT_ID();
       ";
       int id = _db.ExecuteScalar<int>(sql, newNoteData);
@@ -42,7 +42,15 @@ namespace Keepr.Repositories
 
     internal void EditNoteById(int id)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      UPDATE notes
+      SET
+      userId = @UserId,
+      title = @Title,
+      description = @Description,
+      noteCreatedBy = @NoteCreatedBy
+      (WHERE id = @id)";
+      _db.Execute(sql, new { id });
     }
 
     internal void DeleteNoteById(int id)
