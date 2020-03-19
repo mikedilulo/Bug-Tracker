@@ -37,7 +37,7 @@ namespace Keepr.Controllers
       }
     }
 
-    [HttpGet("/closed-bugs")]
+    [HttpGet("closed-bugs")]
     [Authorize]
     public ActionResult<IEnumerable<Bug>> GetAllClosedBugs()
     {
