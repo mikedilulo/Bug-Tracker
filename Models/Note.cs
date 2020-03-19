@@ -1,3 +1,5 @@
+using System;
+
 namespace Keepr.Models
 {
   public class Note
@@ -8,5 +10,6 @@ namespace Keepr.Models
     public string Title { get; set; }
     public string Description { get; set; }
     public string NoteCreatedBy { get; set; }
+    public DateTime TimeCreated { get; set; }
   }
 }
