@@ -66,7 +66,7 @@ namespace Keepr.Repositories
       _db.Execute(sql, editedBug);
     }
 
-    //SOFT DELETE WILL BE IMPLEMENTED IN PROJECT. THIS IS JUST POSTMAN PURPOSES
+    //SOFT DELETE WILL BE IMPLEMENTED IN PROJECT. THIS IS JUST POSTMAN PURPOSES. EDIT WILL BE THE SOFT DELETE
     internal void DeleteBugById(int id)
     {
       string sql = "DELETE FROM bugs WHERE id = @id";
