@@ -55,7 +55,8 @@ namespace Keepr.Repositories
 
     internal void DeleteNoteById(int id)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM notes WHERE id = @id";
+      _db.Execute(sql, new { id });
     }
   }
 }
