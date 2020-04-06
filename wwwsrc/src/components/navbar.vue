@@ -23,7 +23,7 @@
           :class="{ active: $route.name == 'dashboard' }"
         >
           <router-link class="nav-link" :to="{ name: 'dashboard' }">My-Dashboard</router-link>
-        </template>
+        </li>
       </ul>
       <span class="navbar-text">
         <button class="btn btn-success" @click="login" v-if="!$auth.isAuthenticated">Login</button>
